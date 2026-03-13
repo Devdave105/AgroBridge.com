@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroBridge Nigeria — Connecting Farmers to Buyers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" id="ticker">
+    <div class="ticker-label">LIVE PRICES</div>
+    <div class="ticker-track" id="tickerTrack">
+      <div class="ticker-inner" id="tickerInner"></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">Agro<strong>Bridge</strong></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">Why Agriculture</a></li>
+        <li><a href="#register" class="nav-link">Register</a></li>
+        <li><a href="listings.html" class="nav-link">Marketplace</a></li>
+        <li><a href="#register" class="nav-link nav-cta">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1800&auto=format&fit=crop&q=80" alt="Nigerian farm fields" class="hero-bg-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-body">
+      <p class="hero-eyebrow reveal-fade">Nigeria's No.1 Agricultural Marketplace</p>
+      <h1 class="hero-headline reveal-fade">Connecting<br /><em>Farmers</em> to Buyers</h1>
+      <p class="hero-description reveal-fade">A digital bridge between Nigerian smallholder farmers and commercial buyers. Fair prices in Naira, fresh produce, direct deals — no middlemen.</p>
+      <div class="hero-actions reveal-fade">
+        <a href="#register" class="btn btn-primary">Register as Farmer</a>
+        <a href="listings.html" class="btn btn-ghost">Browse Crops</a>
+      </div>
+    </div>
+    <div class="hero-stats-bar reveal-fade">
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-target="1200">0</span><span class="hero-stat-plus">+</span>
+        <span class="hero-stat-label">Registered Farmers</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-target="340">0</span><span class="hero-stat-plus">+</span>
+        <span class="hero-stat-label">Crop Varieties</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-target="36">0</span>
+        <span class="hero-stat-label">States Covered</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD BANNER 1 -->
+  <div class="ad-strip">
+    <div class="container ad-strip-inner">
+      <span class="ad-label">Sponsored</span>
+      <p>Boost your farm yields with <strong>AgroInput Nigeria</strong> — Quality seeds, fertilizers &amp; tools delivered to your farm gate. <a href="#">Shop Now</a></p>
+    </div>
+  </div>
+
+  <!-- AGRICULTURE IMPORTANCE -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <span class="section-tag reveal-fade">Why It Matters</span>
+          <h2 class="section-heading reveal-fade">Agriculture feeds<br /><em>Nigeria</em></h2>
+          <p class="about-lead reveal-fade">Nigerian smallholder farmers produce over 80% of the country's food supply yet struggle with market access, price exploitation, and poor visibility to buyers. AgroBridge ends that.</p>
+          <div class="pillars reveal-fade">
+            <div class="pillar">
+              <div class="pillar-accent"></div>
+              <div>
+                <h4>National Food Security</h4>
+                <p>Nigeria's agriculture sector employs nearly 50% of the working population. Direct market access means more food, better prices, and stronger rural livelihoods across all 36 states.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-accent"></div>
+              <div>
+                <h4>Fair Economic Returns</h4>
+                <p>Agriculture contributes over 25% of Nigeria's GDP. When farmers earn fair prices in Naira, entire communities thrive — from Kaduna to Enugu, Benue to Kebbi.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-accent"></div>
+              <div>
+                <h4>Direct Market Access</h4>
+                <p>AgroBridge removes traders and middlemen. Farmers set their own prices, buyers negotiate directly, and profits return where they matter most — the farm.</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-cta reveal-fade">
+            <a href="#register" class="btn btn-primary">Join as a Farmer Today</a>
+            <a href="listings.html" class="btn btn-outline">See Available Crops</a>
+          </div>
+        </div>
+        <div class="about-right reveal-fade">
+          <div class="about-img-stack">
+            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&auto=format&fit=crop&q=80" alt="Nigerian farmers in the field" class="about-img-main" />
+            <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400&auto=format&fit=crop&q=80" alt="Crop harvest" class="about-img-secondary" />
+            <div class="about-badge">
+              <span class="badge-pct">80<em>%</em></span>
+              <span class="badge-caption">of Nigeria's food from smallholder farms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD BANNER 2 -->
+  <div class="ad-strip ad-strip-alt">
+    <div class="container ad-strip-inner">
+      <span class="ad-label">Sponsored</span>
+      <p><strong>UBA Agric Loan</strong> — Get up to ₦5,000,000 farm financing at 9% interest. Fast approval for verified farmers. <a href="#">Apply Now</a></p>
+    </div>
+  </div>
+
+  <!-- FARMER REGISTRATION -->
+  <section class="register" id="register">
+    <div class="register-media">
+      <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=1600&auto=format&fit=crop&q=80" alt="Green Nigerian farmland" class="register-bg-img" />
+      <div class="register-overlay"></div>
+    </div>
+    <div class="container register-layout">
+      <div class="register-copy">
+        <span class="section-tag light reveal-fade">Join the Platform</span>
+        <h2 class="section-heading light reveal-fade">Register as a<br /><em>Nigerian Farmer</em></h2>
+        <p class="register-lead reveal-fade">List your crops, set your price in Naira, and connect directly with verified buyers across Nigeria.</p>
+        <ul class="perks reveal-fade">
+          <li><span class="perk-dot"></span>Free to join — always</li>
+          <li><span class="perk-dot"></span>List unlimited crops in Naira</li>
+          <li><span class="perk-dot"></span>Direct buyer contact via WhatsApp</li>
+          <li><span class="perk-dot"></span>Verified farmer badge after ID check</li>
+          <li><span class="perk-dot"></span>Zero commission charged</li>
+        </ul>
+        <div class="register-cta-note reveal-fade">
+          After registration, you will be taken to a <strong>secure verification page</strong> where we confirm your identity and farm details. Your verified profile will then appear in our marketplace.
+        </div>
+      </div>
+      <div class="form-card reveal-fade">
+        <h3 class="form-card-title">Farmer Registration</h3>
+        <p class="form-card-sub">Step 1 of 2 — Basic Information</p>
+        <form id="farmerForm" novalidate>
+          <div class="field">
+            <label for="farmerName">Full Name</label>
+            <input type="text" id="farmerName" placeholder="e.g. Emeka Okafor" autocomplete="name" />
+            <span class="field-error" id="nameError"></span>
+          </div>
+          <div class="field">
+            <label for="farmerPhone">Phone Number (WhatsApp)</label>
+            <input type="tel" id="farmerPhone" placeholder="e.g. 08012345678" autocomplete="tel" />
+            <span class="field-error" id="phoneError"></span>
+          </div>
+          <div class="field">
+            <label for="farmerState">State</label>
+            <select id="farmerState">
+              <option value="">Select your state</option>
+              <option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option>
+              <option>Bauchi</option><option>Bayelsa</option><option>Benue</option><option>Borno</option>
+              <option>Cross River</option><option>Delta</option><option>Ebonyi</option><option>Edo</option>
+              <option>Ekiti</option><option>Enugu</option><option>FCT Abuja</option><option>Gombe</option>
+              <option>Imo</option><option>Jigawa</option><option>Kaduna</option><option>Kano</option>
+              <option>Katsina</option><option>Kebbi</option><option>Kogi</option><option>Kwara</option>
+              <option>Lagos</option><option>Nasarawa</option><option>Niger</option><option>Ogun</option>
+              <option>Ondo</option><option>Osun</option><option>Oyo</option><option>Plateau</option>
+              <option>Rivers</option><option>Sokoto</option><option>Taraba</option><option>Yobe</option><option>Zamfara</option>
+            </select>
+            <span class="field-error" id="stateError"></span>
+          </div>
+          <div class="field">
+            <label for="farmerLGA">LGA / Town</label>
+            <input type="text" id="farmerLGA" placeholder="e.g. Ikeja, Lagos" />
+            <span class="field-error" id="lgaError"></span>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cropType">Primary Crop</label>
+              <select id="cropType">
+                <option value="">Select crop</option>
+                <option>Maize</option><option>Cassava</option><option>Rice</option>
+                <option>Tomatoes</option><option>Yam</option><option>Soybean</option>
+                <option>Cocoa</option><option>Plantain</option><option>Groundnuts</option>
+                <option>Pepper</option><option>Onions</option><option>Palm Oil</option><option>Other</option>
+              </select>
+              <span class="field-error" id="cropError"></span>
+            </div>
+            <div class="field">
+              <label for="farmSize">Farm Size (acres)</label>
+              <input type="number" id="farmSize" placeholder="e.g. 5" min="0.1" step="0.1" />
+              <span class="field-error" id="sizeError"></span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Proceed to Verification</button>
+          <div class="form-success hidden" id="formSuccess">Information saved. Redirecting you to the secure verification page...</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROP LISTINGS PREVIEW -->
+  <section class="listings-preview" id="listings">
+    <div class="container">
+      <div class="listings-header">
+        <div>
+          <span class="section-tag reveal-fade">Live Marketplace</span>
+          <h2 class="section-heading reveal-fade">Fresh Crops,<br /><em>Priced in Naira</em></h2>
+          <p class="section-sub reveal-fade">Browse verified crop listings from Nigerian farmers across all 36 states. Prices updated daily.</p>
+        </div>
+        <a href="listings.html" class="btn btn-primary reveal-fade">View Full Marketplace</a>
+      </div>
+
+      <!-- Search preview -->
+      <div class="search-wrap reveal-fade">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="searchInput" placeholder="Search crops by name or state..." />
+          <button class="search-clear hidden" id="searchClear" aria-label="Clear">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="filter-row">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="Maize">Maize</button>
+          <button class="filter-chip" data-filter="Rice">Rice</button>
+          <button class="filter-chip" data-filter="Tomatoes">Tomatoes</button>
+          <button class="filter-chip" data-filter="Cassava">Cassava</button>
+          <button class="filter-chip" data-filter="Yam">Yam</button>
+          <button class="filter-chip" data-filter="Pepper">Pepper</button>
+        </div>
+      </div>
+
+      <div class="crops-grid" id="cropsGrid"></div>
+      <div class="no-results hidden" id="noResults">
+        <p>No crops match your current search.</p>
+        <button class="btn btn-outline" id="clearSearch">Clear Search</button>
+      </div>
+
+      <div class="listings-view-all reveal-fade">
+        <a href="listings.html" class="btn btn-primary">View All Listings on Marketplace</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD BANNER 3 -->
+  <div class="ad-strip">
+    <div class="container ad-strip-inner">
+      <span class="ad-label">Sponsored</span>
+      <p><strong>Dangote Fertilizer</strong> — Premium NPK fertilizer available nationwide. <a href="#">Find a distributor near you</a></p>
+    </div>
+  </div>
+
+  <!-- REVIEWS / TESTIMONIALS -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <span class="section-tag reveal-fade">Farmer Reviews</span>
+      <h2 class="section-heading reveal-fade">What Nigerian Farmers<br /><em>Are Saying</em></h2>
+      <p class="section-sub reveal-fade">Real farmers. Real results. Verified reviews from our community.</p>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+      <div class="reviews-cta reveal-fade">
+        <a href="#register" class="btn btn-primary">Join Thousands of Verified Farmers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how">
+    <div class="how-media">
+      <img src="https://images.unsplash.com/photo-1591922757313-0ef4c0e0a8e4?w=1600&auto=format&fit=crop&q=80" alt="Harvested crops" class="how-bg-img" />
+      <div class="how-overlay"></div>
+    </div>
+    <div class="container how-content">
+      <span class="section-tag light reveal-fade">Simple Process</span>
+      <h2 class="section-heading light reveal-fade">How AgroBridge<br /><em>Works</em></h2>
+      <div class="steps reveal-fade">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h4>Register Your Farm</h4>
+          <p>Fill in your basic details and crop information. Takes less than 3 minutes.</p>
+        </div>
+        <div class="step-arrow"></div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h4>Verify Your Identity</h4>
+          <p>Upload your NIN and farm photos. We verify within 24 hours — completely secure.</p>
+        </div>
+        <div class="step-arrow"></div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h4>List Your Crops</h4>
+          <p>Set your price in Naira. Your verified listing goes live in our marketplace instantly.</p>
+        </div>
+        <div class="step-arrow"></div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h4>Connect with Buyers</h4>
+          <p>Buyers contact you directly on WhatsApp. No commission. No middlemen. Pure profit.</p>
+        </div>
+      </div>
+      <div class="how-cta reveal-fade">
+        <a href="#register" class="btn btn-primary">Start Now — It's Free</a>
+        <a href="listings.html" class="btn btn-ghost">View Marketplace</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-cta-band">
+      <div class="footer-cta-media">
+        <img src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?w=1600&auto=format&fit=crop&q=80" alt="Farm landscape" class="footer-cta-img" />
+        <div class="footer-cta-overlay"></div>
+      </div>
+      <div class="container footer-cta-body reveal-fade">
+        <h2>Start Selling Your Crops Today</h2>
+        <p>Join thousands of verified Nigerian farmers earning fair prices through direct market access.</p>
+        <div class="footer-cta-actions">
+          <a href="#register" class="btn btn-primary">Register as Farmer</a>
+          <a href="listings.html" class="btn btn-ghost">Browse Marketplace</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-main">
+      <div class="container footer-cols">
+        <div class="footer-brand-col">
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"></span>
+            <span class="logo-text">Agro<strong>Bridge</strong></span>
+          </a>
+          <p class="footer-tagline">Nigeria's premier digital agricultural marketplace — connecting smallholder farmers to verified buyers across all 36 states. Built for Nigerian farmers, priced in Naira.</p>
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7H8V9h4v1.765C13.396 9.506 14.164 9 15.5 9c2.046 0 4.5 1.319 4.5 5z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-nav-col">
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="listings.html">Browse Marketplace</a></li>
+            <li><a href="#register">Farmer Registration</a></li>
+            <li><a href="verify.html">Farm Verification</a></li>
+            <li><a href="#about">About AgroBridge</a></li>
+            <li><a href="#how">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h5>Crops</h5>
+          <ul>
+            <li><a href="listings.html">Maize</a></li>
+            <li><a href="listings.html">Rice</a></li>
+            <li><a href="listings.html">Cassava</a></li>
+            <li><a href="listings.html">Yam</a></li>
+            <li><a href="listings.html">Tomatoes</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h5>Support</h5>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <p>2025 AgroBridge Nigeria. All rights reserved. Prices shown in Nigerian Naira (NGN).</p>
+        <p class="footer-credit">Developed by <strong>David Akpan</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top hidden" id="backTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

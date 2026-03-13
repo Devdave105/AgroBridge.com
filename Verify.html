@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farm Verification — AgroBridge Nigeria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="verify.css" />
+</head>
+<body class="verify-page">
+
+  <!-- NAVBAR (simplified) -->
+  <nav class="navbar navbar-light" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">Agro<strong>Bridge</strong></span>
+      </a>
+      <div class="verify-nav-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Secure Verification Portal
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN VERIFICATION LAYOUT -->
+  <div class="verify-layout">
+
+    <!-- LEFT — Progress + Info Panel -->
+    <aside class="verify-sidebar">
+      <div class="verify-sidebar-inner">
+        <div class="verify-welcome">
+          <h2 id="sidebarName">Welcome, Farmer</h2>
+          <p>Complete the steps below to verify your farm and go live on the AgroBridge marketplace.</p>
+        </div>
+
+        <div class="verify-steps-nav">
+          <div class="vstep vstep-active" data-step="1">
+            <div class="vstep-num">1</div>
+            <div class="vstep-info">
+              <span class="vstep-title">NIN Verification</span>
+              <span class="vstep-sub">National Identity Number</span>
+            </div>
+          </div>
+          <div class="vstep" data-step="2">
+            <div class="vstep-num">2</div>
+            <div class="vstep-info">
+              <span class="vstep-title">Farm Location</span>
+              <span class="vstep-sub">GPS address &amp; coordinates</span>
+            </div>
+          </div>
+          <div class="vstep" data-step="3">
+            <div class="vstep-num">3</div>
+            <div class="vstep-info">
+              <span class="vstep-title">Farm Photos</span>
+              <span class="vstep-sub">Upload farm images</span>
+            </div>
+          </div>
+          <div class="vstep" data-step="4">
+            <div class="vstep-num">4</div>
+            <div class="vstep-info">
+              <span class="vstep-title">Bank Details</span>
+              <span class="vstep-sub">For payment processing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="verify-security-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div>
+            <strong>Your data is safe</strong>
+            <p>All information submitted here is encrypted and stored securely. Your NIN and personal details are never shared publicly and are used only for identity verification.</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT — Form Steps -->
+    <main class="verify-main">
+
+      <!-- PENDING NOTIFICATION BANNER -->
+      <div class="verify-pending-banner hidden" id="pendingBanner">
+        <div class="pending-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="pending-text">
+          <strong>Verification In Progress</strong>
+          <p>Thank you for submitting your details. Our team is reviewing your information. This usually takes <strong>24–48 hours</strong>. You will receive an SMS and WhatsApp notification on your registered number once approved. Your listings will go live automatically after approval.</p>
+        </div>
+      </div>
+
+      <!-- STEP 1: NIN -->
+      <div class="verify-step-panel" id="step1">
+        <div class="step-panel-header">
+          <h3>Step 1 — NIN Verification</h3>
+          <p>Enter your 11-digit National Identification Number. This is used to confirm your identity as a Nigerian citizen.</p>
+        </div>
+        <form id="ninForm" novalidate>
+          <div class="field">
+            <label for="ninNumber">National Identification Number (NIN)</label>
+            <input type="text" id="ninNumber" placeholder="e.g. 12345678901" maxlength="11" inputmode="numeric" />
+            <span class="field-hint">Your NIN is 11 digits. Find it on your NIN slip or NIMC card.</span>
+            <span class="field-error" id="ninError"></span>
+          </div>
+          <div class="field">
+            <label for="ninFullName">Full Name (as on NIN)</label>
+            <input type="text" id="ninFullName" placeholder="e.g. OKAFOR EMEKA CHUKWUDI" />
+            <span class="field-error" id="ninNameError"></span>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="ninDOB">Date of Birth</label>
+              <input type="date" id="ninDOB" />
+              <span class="field-error" id="ninDOBError"></span>
+            </div>
+            <div class="field">
+              <label for="ninGender">Gender</label>
+              <select id="ninGender">
+                <option value="">Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+              <span class="field-error" id="ninGenderError"></span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ninSelfie">Selfie with NIN Slip (optional but recommended)</label>
+            <div class="file-upload-zone" id="selfieZone">
+              <input type="file" id="ninSelfie" accept="image/*" class="file-input" />
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span class="upload-label">Click to upload or drag photo here</span>
+              <span class="upload-hint">JPG, PNG — max 5MB</span>
+              <div class="upload-preview hidden" id="selfiePreview"></div>
+            </div>
+          </div>
+          <div class="step-actions">
+            <button type="submit" class="btn btn-primary">Continue to Step 2</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- STEP 2: Farm Location -->
+      <div class="verify-step-panel hidden" id="step2">
+        <div class="step-panel-header">
+          <h3>Step 2 — Farm Location Details</h3>
+          <p>Provide the exact location of your farm. This helps buyers understand where produce is coming from.</p>
+        </div>
+        <form id="locationForm" novalidate>
+          <div class="field">
+            <label for="farmAddress">Farm Address / Nearest Town</label>
+            <input type="text" id="farmAddress" placeholder="e.g. Km 12, Bida Road, Minna, Niger State" />
+            <span class="field-error" id="farmAddressError"></span>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="farmStateV">State</label>
+              <select id="farmStateV">
+                <option value="">Select state</option>
+                <option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option>
+                <option>Bauchi</option><option>Bayelsa</option><option>Benue</option><option>Borno</option>
+                <option>Cross River</option><option>Delta</option><option>Ebonyi</option><option>Edo</option>
+                <option>Ekiti</option><option>Enugu</option><option>FCT Abuja</option><option>Gombe</option>
+                <option>Imo</option><option>Jigawa</option><option>Kaduna</option><option>Kano</option>
+                <option>Katsina</option><option>Kebbi</option><option>Kogi</option><option>Kwara</option>
+                <option>Lagos</option><option>Nasarawa</option><option>Niger</option><option>Ogun</option>
+                <option>Ondo</option><option>Osun</option><option>Oyo</option><option>Plateau</option>
+                <option>Rivers</option><option>Sokoto</option><option>Taraba</option><option>Yobe</option><option>Zamfara</option>
+              </select>
+              <span class="field-error" id="farmStateVError"></span>
+            </div>
+            <div class="field">
+              <label for="farmLGA">Local Government Area</label>
+              <input type="text" id="farmLGA" placeholder="e.g. Chikun LGA" />
+              <span class="field-error" id="farmLGAError"></span>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="farmSizeV">Farm Size (acres)</label>
+              <input type="number" id="farmSizeV" placeholder="e.g. 10" min="0.1" step="0.1" />
+            </div>
+            <div class="field">
+              <label for="farmType">Farm Type</label>
+              <select id="farmType">
+                <option value="">Select type</option>
+                <option>Crop Farming</option>
+                <option>Mixed Farming</option>
+                <option>Poultry</option>
+                <option>Livestock</option>
+                <option>Fish Farming</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="farmLandmark">Nearby Landmark</label>
+            <input type="text" id="farmLandmark" placeholder="e.g. Near St. Peter's Church, Minna" />
+          </div>
+          <div class="step-actions">
+            <button type="button" class="btn btn-outline" id="backToStep1">Back</button>
+            <button type="submit" class="btn btn-primary">Continue to Step 3</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- STEP 3: Farm Photos -->
+      <div class="verify-step-panel hidden" id="step3">
+        <div class="step-panel-header">
+          <h3>Step 3 — Farm Photos</h3>
+          <p>Upload clear photos of your farm and produce. Verified farmers with photos get 3x more buyer contacts.</p>
+        </div>
+        <form id="photosForm" novalidate>
+          <div class="photos-grid">
+            <div class="photo-upload-slot">
+              <div class="file-upload-zone mini" id="farmPhoto1Zone">
+                <input type="file" id="farmPhoto1" accept="image/*" class="file-input" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Farm Overview</span>
+                <div class="upload-preview hidden" id="preview1"></div>
+              </div>
+            </div>
+            <div class="photo-upload-slot">
+              <div class="file-upload-zone mini" id="farmPhoto2Zone">
+                <input type="file" id="farmPhoto2" accept="image/*" class="file-input" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Your Crops (growing)</span>
+                <div class="upload-preview hidden" id="preview2"></div>
+              </div>
+            </div>
+            <div class="photo-upload-slot">
+              <div class="file-upload-zone mini" id="farmPhoto3Zone">
+                <input type="file" id="farmPhoto3" accept="image/*" class="file-input" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Harvested Produce</span>
+                <div class="upload-preview hidden" id="preview3"></div>
+              </div>
+            </div>
+            <div class="photo-upload-slot">
+              <div class="file-upload-zone mini" id="farmPhoto4Zone">
+                <input type="file" id="farmPhoto4" accept="image/*" class="file-input" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Storage Facility</span>
+                <div class="upload-preview hidden" id="preview4"></div>
+              </div>
+            </div>
+          </div>
+          <div class="field" style="margin-top:24px;">
+            <label for="cropDescription">Describe your current produce availability</label>
+            <textarea id="cropDescription" rows="3" placeholder="e.g. I currently have 5 tonnes of maize available for sale. Harvested this October. Stored in a ventilated silo. Ready for immediate offtake."></textarea>
+          </div>
+          <div class="step-actions">
+            <button type="button" class="btn btn-outline" id="backToStep2">Back</button>
+            <button type="submit" class="btn btn-primary">Continue to Step 4</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- STEP 4: Bank Details -->
+      <div class="verify-step-panel hidden" id="step4">
+        <div class="step-panel-header">
+          <h3>Step 4 — Bank Account Details</h3>
+          <p>Your bank details are used for processing payments securely. This information is encrypted and never shared publicly.</p>
+        </div>
+        <form id="bankForm" novalidate>
+          <div class="field">
+            <label for="bankName">Bank Name</label>
+            <select id="bankName">
+              <option value="">Select your bank</option>
+              <option>Access Bank</option><option>GTBank (Guaranty Trust)</option>
+              <option>Zenith Bank</option><option>First Bank of Nigeria</option>
+              <option>UBA (United Bank for Africa)</option><option>Fidelity Bank</option>
+              <option>Polaris Bank</option><option>Wema Bank</option>
+              <option>Union Bank</option><option>Stanbic IBTC</option>
+              <option>Keystone Bank</option><option>Ecobank Nigeria</option>
+              <option>Heritage Bank</option><option>Jaiz Bank</option>
+              <option>Opay</option><option>Moniepoint</option><option>Kuda Bank</option>
+              <option>Other</option>
+            </select>
+            <span class="field-error" id="bankNameError"></span>
+          </div>
+          <div class="field">
+            <label for="accountNumber">Account Number</label>
+            <input type="text" id="accountNumber" placeholder="10-digit NUBAN account number" maxlength="10" inputmode="numeric" />
+            <span class="field-error" id="accountNumberError"></span>
+          </div>
+          <div class="field">
+            <label for="accountName">Account Name</label>
+            <input type="text" id="accountName" placeholder="As it appears on your bank account" />
+            <span class="field-hint">Must match your registered name for payments to be processed.</span>
+            <span class="field-error" id="accountNameError"></span>
+          </div>
+          <div class="field">
+            <label for="bvn">BVN (Bank Verification Number) — Optional</label>
+            <input type="text" id="bvn" placeholder="11-digit BVN" maxlength="11" inputmode="numeric" />
+            <span class="field-hint">Providing BVN speeds up verification and enables faster payments.</span>
+          </div>
+
+          <!-- Consent -->
+          <div class="consent-box">
+            <label class="consent-label">
+              <input type="checkbox" id="consentCheck" />
+              <span>I confirm that all information provided is accurate and true. I understand that providing false information may result in permanent removal from the AgroBridge platform.</span>
+            </label>
+            <span class="field-error" id="consentError"></span>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-outline" id="backToStep3">Back</button>
+            <button type="submit" class="btn btn-primary" id="submitVerify">Submit for Verification</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="verify-success hidden" id="verifySuccess">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h2>Verification Submitted Successfully</h2>
+        <p>Thank you, <strong id="successName">Farmer</strong>. Your details have been received and are currently under review by our verification team.</p>
+        <div class="success-timeline">
+          <div class="timeline-item done">
+            <span class="tl-dot"></span>
+            <div>
+              <strong>Registration Submitted</strong>
+              <span id="submitTime"></span>
+            </div>
+          </div>
+          <div class="timeline-item active">
+            <span class="tl-dot"></span>
+            <div>
+              <strong>Identity Verification (In Progress)</strong>
+              <span>Our team is reviewing your NIN and documents. Est. 24–48 hours.</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="tl-dot"></span>
+            <div>
+              <strong>Farm Profile Approved</strong>
+              <span>You will receive an SMS and WhatsApp notification.</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="tl-dot"></span>
+            <div>
+              <strong>Live on Marketplace</strong>
+              <span>Your crops will appear in the AgroBridge marketplace.</span>
+            </div>
+          </div>
+        </div>
+        <div class="success-actions">
+          <a href="listings.html" class="btn btn-primary">View Marketplace</a>
+          <a href="index.html" class="btn btn-outline">Return to Home</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FARMER DASHBOARD (shown after verification lookup) -->
+  <div class="farmer-dashboard hidden" id="farmerDashboard">
+    <div class="container">
+      <div class="dashboard-header">
+        <h2>Your Farmer Dashboard</h2>
+        <div class="dashboard-status" id="dashboardStatus"></div>
+      </div>
+      <div class="dashboard-grid">
+        <div class="dash-card">
+          <h4>Registered Farmer</h4>
+          <div class="dash-val" id="dashName">—</div>
+        </div>
+        <div class="dash-card">
+          <h4>Phone Number</h4>
+          <div class="dash-val" id="dashPhone">—</div>
+        </div>
+        <div class="dash-card">
+          <h4>Location</h4>
+          <div class="dash-val" id="dashLocation">—</div>
+        </div>
+        <div class="dash-card">
+          <h4>Primary Crop</h4>
+          <div class="dash-val" id="dashCrop">—</div>
+        </div>
+        <div class="dash-card">
+          <h4>Farm Size</h4>
+          <div class="dash-val" id="dashSize">—</div>
+        </div>
+        <div class="dash-card">
+          <h4>Verification Status</h4>
+          <div class="dash-val" id="dashStatus">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+  <script src="verify.js"></script>
+</body>
+</html>
